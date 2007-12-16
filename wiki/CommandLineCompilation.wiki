@@ -6,7 +6,7 @@ Sure, you could brew up a project/solution file. Regardless, here's how to compi
 
 = MacOS =
 
-_Make sure you have Mono installed!_
+_Make sure you have X11 installed!_
 
 *gmcs Form1.cs StreetSmartsRuleProcessor.cs -pkg:dotnet -out:StreetSmartsMac.exe -define:PLATFORM_MAC*
 
