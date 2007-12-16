@@ -1,0 +1,11 @@
+#summary How to compile on the command-line.
+
+= Introduction =
+
+Sure, you could brew up a project/solution file. Regardless, here's how to compile StreetSmarts on the command-line:
+
+= MacOS =
+
+_Make sure you have Mono installed!_
+
+*gmcs Form1.cs StreetSmartsRuleProcessor.cs -pkg:dotnet -out:StreetSmartsMac.exe -define:PLATFORM_MAC*
