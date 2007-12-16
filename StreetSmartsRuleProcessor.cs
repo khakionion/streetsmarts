@@ -12,12 +12,19 @@ namespace StreetSmarts
 		private Queue Actions;
 		private Queue Parameters;
 		private string[] Files;
+#if PLATFORM_WIN
+		public string startPath = @"C:\";
+#elif PLATFORM_MAC
+		public string startPath = @"/Users/"+Environment.UserName;
+#elif PLATFORM_LIN
+		public string startPath = @"/home/"+Environment.UserName;
+#endif
 		public StreetSmartsRuleProcessor()
 		{
 			Actions = new Queue();
 			Parameters = new Queue();
-			Files = Directory.GetFiles(@"C:\","*");
-			Environment.CurrentDirectory = @"C:\";
+			Files = Directory.GetFiles(startPath,"*");
+			Environment.CurrentDirectory = startPath;
 		}
 		/// <summary>
 		/// Adds an action to be performed when ProcessRuleset() is invoked.
@@ -129,6 +136,10 @@ namespace StreetSmarts
 			foreach(string NextFullPath in Files)
 			{
 				string NextFile = Path.GetFileNameWithoutExtension(NextFullPath);
+				if(NextFile.Length ==0)
+				{
+					continue;
+				}
 				string NewFile;
 				if(Location.Equals("first"))
 					NewFile = NextFile.Substring(NumChars,NextFile.Length-NumChars);
