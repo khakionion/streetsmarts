@@ -2,7 +2,9 @@
 
 = Introduction =
 
-Sure, you could brew up a project/solution file. Regardless, here's how to compile StreetSmarts on the command-line:
+Sure, you could brew up a project/solution file. Regardless, here's how to compile StreetSmarts on the command-line.
+
+_You must have Mono installed for non-Windows platforms!_
 
 = MacOS =
 
