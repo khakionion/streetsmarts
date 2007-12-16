@@ -12,7 +12,7 @@ namespace StreetSmarts
 	/// </summary>
 	public class StreetSmartsMainForm : System.Windows.Forms.Form
 	{
-		private string CurrentVersion = "0.2";
+		private string CurrentVersion = "1.0";
 		private StreetSmartsRuleProcessor myProcessor;
 		private System.Windows.Forms.GroupBox FolderGroup;
 		private System.Windows.Forms.Label CurrentFolder;
@@ -44,9 +44,9 @@ namespace StreetSmarts
 			//
 			// Required for Windows Form Designer support
 			//
+			this.myProcessor = new StreetSmartsRuleProcessor();
 			InitializeComponent();
 
-			this.myProcessor = new StreetSmartsRuleProcessor();
 		}
 
 		/// <summary>
@@ -121,12 +121,12 @@ namespace StreetSmarts
 			this.CurrentFolder.Name = "CurrentFolder";
 			this.CurrentFolder.Size = new System.Drawing.Size(528, 16);
 			this.CurrentFolder.TabIndex = 1;
-			this.CurrentFolder.Text = "C:\\";
+			this.CurrentFolder.Text = this.myProcessor.startPath;
 			// 
 			// SelectFolderDialog
 			// 
 			this.SelectFolderDialog.RootFolder = System.Environment.SpecialFolder.MyComputer;
-			this.SelectFolderDialog.SelectedPath = "C:\\";
+			this.SelectFolderDialog.SelectedPath = this.myProcessor.startPath;
 			// 
 			// MainMenu
 			// 
@@ -205,8 +205,7 @@ namespace StreetSmarts
 			this.RuleSetInput.Name = "RuleSetInput";
 			this.RuleSetInput.Size = new System.Drawing.Size(752, 120);
 			this.RuleSetInput.TabIndex = 1;
-			this.RuleSetInput.Text = "delete first 3\r\ndelete last 4\r\nspacify -\r\nprepend The_All-American_Rejects\r\nappen" +
-				"d (Rock_Remix)\r\nunderscores off\r\ncapitalize normally";
+			this.RuleSetInput.Text = "append (rock_remix)\r\nunderscores off\r\ncapitalize normally";
 			this.RuleSetInput.WordWrap = false;
 			this.RuleSetInput.TextChanged += new System.EventHandler(this.RuleSetInput_TextChanged);
 			// 
@@ -297,7 +296,7 @@ namespace StreetSmarts
 
 		private void menuItem2_Click(object sender, System.EventArgs e)
 		{
-			MessageBox.Show("StreetSmarts v" + CurrentVersion + "\n\n for more info, visit Khakionion.com");
+			MessageBox.Show("StreetSmarts v" + CurrentVersion + "\n\n http://code.google.com/p/streetsmarts/");
 		}
 
 		private void button2_Click(object sender, System.EventArgs e)
@@ -317,7 +316,7 @@ namespace StreetSmarts
 
 		private void menuItem4_Click(object sender, System.EventArgs e)
 		{
-			MessageBox.Show("Delete\n\nTakes two arguments: (first | last) and <32-bit integer>\n\nPretty straightforward, deletes either\nthe first or last n characters of a filename.");
+			MessageBox.Show("Delete\n\nTakes two arguments: (first | last) and <integer>\n\nPretty straightforward, deletes either\nthe first or last n characters of a filename.");
 		}
 
 		private void menuItem7_Click(object sender, System.EventArgs e)

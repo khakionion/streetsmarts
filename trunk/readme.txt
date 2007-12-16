@@ -3,13 +3,27 @@ StreetSmarts
 ////////////
 StreetSmarts is a utility for the mass renaming of files.
 
-It uses its own scripting language, S^3, pronounced "s-cubed."
+It uses its own scripting language, S^3.
 
 To learn S^3, use the reference contained in the program.
+
+//////////////////////
+Compiling StreetSmarts
+//////////////////////
+
+On Windows, you must define PLATFORM_WIN when compiling.
+
+On MacOS, make sure Mono is installed and use the gmcs command. You must define PLATFORM_MAC or the program will fail to compile:
+
+	gmcs Form1.cs StreetSmartsRuleProcessor.cs -pkg:dotnet -out:StreetSmartsMac.exe -define:PLATFORM_MAC
 
 ///////////
 What's New?
 ///////////
+
+Version 0.9
+-----------
+Now compiles and runs in MacOS and Windows. A known MacOS issue is odd behavior when editing the S^3 script.
 
 Version 0.2
 -----------
@@ -19,25 +33,6 @@ Version 0.1
 -----------
 First version.  I'm sure there's plenty of bugs.
 
-///////////////////////////
-The Brief, Witty Fine Print
-///////////////////////////
-
-Anti-Malware Guarantee
-----------------------
-I guarantee that Khakionion.com never hosts any software containing "malware," or software components meant to operate in a manner inconsistent with their labeling. This means ALL Khakionion.com software, prerelease or not, never incorporates adware or spyware to gather data without your knowledge. 
-
-In fact, all Khakionion.com software is "self-contained," meaning they don't put files anywhere but their own directory, and don't even know about the registry, much less make changes to it. The Windows Registry is a Bad Thing(tm).
-
-The Khakionion License, Tier 2
--------------------------------------
-This program is licensed under Tier 2 of the Khakionion License, meaning the source code is distributed with the program for your perusal/reading/modification/anything, and you are free to distribute the program as you see fit. 
-
-Rearchival, distribution, and modification are allowed, as long as no attempt is made to:
-
-1) Misrepresent modified versions as being from Khakionion.com, or
-2) Misrepresent original versions as not being from Khakionion.com.
-
 Thanks, and enjoy!
 
-Khakionion
+./Khakionion
