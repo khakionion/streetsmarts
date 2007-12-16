@@ -11,11 +11,10 @@ To learn S^3, use the reference contained in the program.
 Compiling StreetSmarts
 //////////////////////
 
-On Windows, you must define PLATFORM_WIN when compiling.
+Be sure and define your platform on the command line. You can use PLATFORM_WIN, PLATFORM_MAC, or PLATFORM LIN. If you don't the program will fail to compile.
 
-On MacOS, make sure Mono is installed and use the gmcs command. You must define PLATFORM_MAC or the program will fail to compile:
-
-	gmcs Form1.cs StreetSmartsRuleProcessor.cs -pkg:dotnet -out:StreetSmartsMac.exe -define:PLATFORM_MAC
+MacOS Command Line: gmcs Form1.cs StreetSmartsRuleProcessor.cs -pkg:dotnet -out:StreetSmartsMac.exe -define:PLATFORM_MAC
+Linux Command Line: gmcs Form1.cs StreetSmartsRuleProcessor.cs -out:StreetSmartsLin.exe -r:System.Windows.Forms -r:System.Drawing -r:System.Data -define:PLATFORM_LIN
 
 ///////////
 What's New?
